@@ -52,10 +52,10 @@ class LTSV
 
     public function __toString()
     {
-        $lines = array();
+        $parts = array();
         foreach ($this->values as $key => $value) {
-            $lines[] = $key . self::KEY_VALUE_DELIMITER . $value;
+            $parts[] = $key . self::KEY_VALUE_DELIMITER . $value;
         }
-        return implode(self::DELIMITER, $lines);
+        return implode(self::DELIMITER, $parts);
     }
 }
