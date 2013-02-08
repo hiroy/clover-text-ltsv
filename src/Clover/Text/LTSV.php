@@ -21,7 +21,7 @@ class LTSV
         $values = array();
         foreach ($parts as $part) {
             $pos = strpos($part, self::KEY_VALUE_DELIMITER);
-            if ($pos !== false) {
+            if ($pos !== false && $pos > 0) {
                 $key = substr($part, 0, $pos);
                 $value = substr($part, $pos + 1);
                 $values[$key] = $value;
