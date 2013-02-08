@@ -1,10 +1,10 @@
-# Clover\Text\LTSV
+# LTSV
 
 Labeled Tab-separated Values (LTSV; cf. http://ltsv.org/) parser for PHP.
 
 ## Install
 
-If using [Composer](http://getcomposer.org/) as a dependency management tool, you can bring Clover\Text\LTSV in your environment easily with settings below.
+Using [Composer](http://getcomposer.org/) as a dependency management tool, you can bring `Clover\Text\LTSV` in your environment easily with settings below.
 
 ```
 {
