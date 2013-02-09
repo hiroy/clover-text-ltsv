@@ -76,9 +76,23 @@ class LTSVTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    public function testToLine()
+    {
+        $ltsv = new LTSV();
+        $ltsv->add('hoge', 'foo')->add('bar', 'baz');
+        $this->assertEquals("hoge:foo\tbar:baz", $ltsv->toLine());
+
+        $ltsv = new LTSV();
+        $this->assertEquals('', $ltsv->toLine());
+    }
+
     public function testToString()
     {
-        $ltsv = new LTSV(array('hoge' => 'foo', 'bar' => 'baz'));
+        $ltsv = new LTSV();
+        $ltsv->add('hoge', 'foo')->add('bar', 'baz');
         $this->assertEquals("hoge:foo\tbar:baz", strval($ltsv));
+
+        $ltsv = new LTSV();
+        $this->assertEquals('', strval($ltsv));
     }
 }

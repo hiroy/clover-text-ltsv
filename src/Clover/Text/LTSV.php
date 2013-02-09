@@ -8,13 +8,6 @@ class LTSV
 
     protected $values = array();
 
-    public function __construct(array $values = array())
-    {
-        if (is_array($values) && !is_null($values)) {
-            $this->values = $values;
-        }
-    }
-
     public function parseLine($line)
     {
         $parts = str_getcsv($line, self::DELIMITER);
@@ -51,12 +44,23 @@ class LTSV
         return $arrayObject->getIterator();
     }
 
-    public function __toString()
+    public function add($label, $value)
+    {
+        $this->values[$label] = $value;
+        return $this;
+    }
+
+    public function toLine()
     {
         $parts = array();
         foreach ($this->values as $label => $value) {
             $parts[] = $label . self::LABEL_VALUE_DELIMITER . $value;
         }
         return implode(self::DELIMITER, $parts);
+    }
+
+    public function __toString()
+    {
+        return $this->toLine();
     }
 }
