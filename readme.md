@@ -1,4 +1,4 @@
-# LTSV
+# Text-LTSV
 
 Labeled Tab-separated Values (LTSV; cf. http://ltsv.org/) parser for PHP.
 
