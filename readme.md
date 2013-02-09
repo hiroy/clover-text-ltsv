@@ -28,4 +28,7 @@ $it = $ltsv->getIteratorFromFile('log.ltsv');
 foreach ($it as $values) {
     // do something
 }
+
+$ltsv->add('hoge', 'foo')->add('bar', 'baz');
+$line = $ltsv->toLine();
 ```

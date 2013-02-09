@@ -10,6 +10,7 @@ class LTSV
 
     public function parseLine($line)
     {
+        $line = trim($line);
         $parts = str_getcsv($line, self::DELIMITER);
         $values = array();
         $labelValueDelimiterLength = strlen(self::LABEL_VALUE_DELIMITER);
@@ -50,13 +51,17 @@ class LTSV
         return $this;
     }
 
-    public function toLine()
+    public function toLine($doesAppendEOL = false)
     {
         $parts = array();
         foreach ($this->values as $label => $value) {
             $parts[] = $label . self::LABEL_VALUE_DELIMITER . $value;
         }
-        return implode(self::DELIMITER, $parts);
+        $line = implode(self::DELIMITER, $parts);
+        if ($doesAppendEOL) {
+            $line .= PHP_EOL;
+        }
+        return $line;
     }
 
     public function __toString()
