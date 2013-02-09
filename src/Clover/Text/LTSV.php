@@ -4,7 +4,7 @@ namespace Clover\Text;
 class LTSV
 {
     const DELIMITER = "\t";
-    const KEY_VALUE_DELIMITER = ':';
+    const LABEL_VALUE_DELIMITER = ':';
 
     protected $values = array();
 
@@ -19,12 +19,13 @@ class LTSV
     {
         $parts = str_getcsv($line, self::DELIMITER);
         $values = array();
+        $labelValueDelimiterLength = strlen(self::LABEL_VALUE_DELIMITER);
         foreach ($parts as $part) {
-            $pos = strpos($part, self::KEY_VALUE_DELIMITER);
+            $pos = strpos($part, self::LABEL_VALUE_DELIMITER);
             if ($pos !== false && $pos > 0) {
-                $key = substr($part, 0, $pos);
-                $value = substr($part, $pos + 1);
-                $values[$key] = $value;
+                $label = substr($part, 0, $pos);
+                $value = substr($part, $pos + $labelValueDelimiterLength);
+                $values[$label] = $value;
             }
         }
         return $values;
@@ -53,8 +54,8 @@ class LTSV
     public function __toString()
     {
         $parts = array();
-        foreach ($this->values as $key => $value) {
-            $parts[] = $key . self::KEY_VALUE_DELIMITER . $value;
+        foreach ($this->values as $label => $value) {
+            $parts[] = $label . self::LABEL_VALUE_DELIMITER . $value;
         }
         return implode(self::DELIMITER, $parts);
     }
