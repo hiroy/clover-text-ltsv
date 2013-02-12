@@ -1,5 +1,7 @@
 # Text-LTSV
 
+[![Build Status](https://travis-ci.org/hiroy/clover-text-ltsv.png?branch=master)](https://travis-ci.org/hiroy/clover-text-ltsv)
+
 Labeled Tab-separated Values (LTSV; cf. http://ltsv.org/) parser for PHP.
 
 ## Install
