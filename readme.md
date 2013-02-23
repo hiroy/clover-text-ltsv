@@ -34,3 +34,7 @@ foreach ($it as $values) {
 $ltsv->add('hoge', 'foo')->add('bar', 'baz');
 $line = $ltsv->toLine();
 ```
+
+## License
+
+Free to use under the terms of the New BSD License.
