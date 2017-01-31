@@ -11,7 +11,7 @@ Using [Composer](http://getcomposer.org/) as a dependency management tool, you c
 ```
 {
   "require": {
-    "clover/text-ltsv": "1.0.*-dev"
+    "clover/text-ltsv": "~1.0"
   }
 }
 ```
